@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Have Fun Doing It — Finn Fastré</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* fun-chapter specific flourish — a small case study callout */
+  .case-study {
+    max-width: 1300px;
+    margin: 60px auto 0;
+    padding: 0 48px;
+    position: relative;
+    z-index: 2;
+  }
+  .case-study-inner {
+    background: linear-gradient(135deg, #1a7a6f 0%, #0f5048 100%);
+    color: var(--paper);
+    padding: 70px 64px;
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid var(--highlight);
+  }
+  .case-study-inner::after {
+    content: '🍋';
+    position: absolute;
+    bottom: -40px;
+    right: -20px;
+    font-size: 280px;
+    opacity: 0.12;
+    line-height: 1;
+  }
+  .case-study-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .case-study h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 4.5vw, 60px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    font-variation-settings: "opsz" 144;
+  }
+  .case-study h3 em { font-style: italic; color: var(--highlight); }
+  .case-study-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .case-stat .num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--highlight);
+    margin-bottom: 10px;
+    font-variation-settings: "opsz" 144;
+  }
+  .case-stat .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(244,237,225,0.75);
+    line-height: 1.4;
+  }
+  .case-tagline {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(244,237,225,0.2);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--paper);
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 980px) {
+    .case-study { padding: 0 24px; }
+    .case-study-inner { padding: 48px 32px; }
+    .case-study-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .case-stat .num { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand">Finn Fastré <span class="brand-dot">·</span> On Speaking Well</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="tell-a-story.html">Tell a Story</a>
+    <a href="stay-loose.html">Stay Loose</a>
+    <a href="have-fun.html" class="active">Have Fun Doing It</a>
+  </div>
+</nav>
+
+<header class="chapter-header">
+  <div class="chapter-kicker">Chapter Three · The Enjoyment Principle</div>
+  <h1 class="chapter-title">Have fun <em>doing</em> it.</h1>
+  <p class="chapter-dek">Business and professional speaking is often framed as stuffy, dense, and boring. I don't buy it. The best professional communicators I have watched — in pitches, in interviews, in classrooms — keep a sense of play without ever sacrificing rigor. This chapter is about how they do it, told through the pitch I am most proud of.</p>
+</header>
+
+<!-- CASE STUDY CALLOUT -->
+<section class="case-study">
+  <div class="case-study-inner">
+    <div class="case-study-label">Featured Case Study</div>
+    <h3>Cello's <em>Limoncello.</em></h3>
+    <p style="font-family: 'Fraunces', serif; font-size: 20px; line-height: 1.55; max-width: 680px; position: relative; z-index: 1; color: rgba(244,237,225,0.88);">A Shark Tank-style pitch I built with my friend Marcello for an entirely real product concept: a premium American limoncello brand aimed at a $4.5B category with almost no dominant player. The pitch got laughs. It also got a serious conversation about unit economics. That is the point.</p>
+
+    <div class="case-study-grid">
+      <div class="case-stat">
+        <div class="num">$4.5B</div>
+        <div class="label">Global limoncello &amp; citrus liqueur market (2024)</div>
+      </div>
+      <div class="case-stat">
+        <div class="num">$1.3B</div>
+        <div class="label">Aperol's annual revenue, built on one cocktail</div>
+      </div>
+      <div class="case-stat">
+        <div class="num">7,000+</div>
+        <div class="label">Italian restaurants in the U.S. with no premium limoncello</div>
+      </div>
+      <div class="case-stat">
+        <div class="num">$200K</div>
+        <div class="label">The ask · 15% equity · specific and closeable</div>
+      </div>
+    </div>
+
+    <div class="case-tagline">"Life's short. Make it a Cello."</div>
+  </div>
+</section>
+
+<!-- SKILL: PITCHING -->
+<section class="skill">
+  <div class="skill-grid">
+    <div class="skill-index">
+      <div class="num">01<span class="dot">.</span></div>
+      <div class="tag">Pitching &amp; Persuasion</div>
+    </div>
+    <div class="skill-body">
+      <h2>A great <em>pitch</em> sells the feeling, not the spreadsheet.</h2>
+      <p class="dek">People fund stories. The numbers only exist to defend the story once they've already decided they like it.</p>
+
+      <h4>The Skill</h4>
+      <p>Pitching is its own animal. It is half persuasive speech, half sales call, half research presentation, and entirely about earning a specific decision from a specific person in a specific amount of time. The best pitches I have studied — Aperol, actual Shark Tank episodes, the decks that circulate inside IB — all do the same thing: they open with a feeling, they land a sharp "why now," they prove the market, and they close with a specific ask.</p>
+
+      <p>But here is the thing nobody tells you: <strong>the best ones are also fun.</strong> Not gimmicky-fun. Not cringe-fun. But there is a lightness in the delivery — a confidence that lets the speaker enjoy themselves, crack a line, let the audience laugh — without undermining the case underneath. That lightness is not a distraction from the rigor. It is what earns the rigor a hearing.</p>
+
+      <div class="pullquote">
+        Fun and rigor are not opposites. The fun is what earns you the room's attention long enough to defend the rigor.
+      </div>
+
+      <h4>The Evidence</h4>
+      <div class="example">
+        <div class="ex-title">Shark Tank Assignment — <em>Cello's Limoncello</em></div>
+        <div class="ex-meta">Feb 2026 · Live pitch · Built with my friend Marcello</div>
+        <p>We opened with a scene: you are at dinner, you want a limoncello, the server shrugs and says they don't carry it. That is the whole problem in one image. <strong>7,000+ Italian restaurants in the U.S. and no dominant limoncello brand.</strong> Then we ran the Aperol playbook — a $1.3B brand built on one cocktail — and made the ask: $200,000 for 15% equity. Closing line: <em>Life's short. Make it a Cello.</em></p>
+        <p>We got laughs. We also got real engagement on the numbers. Margins (3.3× on-premise, 4.1× retail). Go-to-market (50 Italian restaurants in Boston and NYC, then specialty retail, then distribution). Why now (low-ABV boom, dolce vita trending, no incumbent). Every joke was a scaffold for a real data point. Every data point was resting on a joke that let the room lean in.</p>
+      </div>
+
+      <h4>How It Shows Up at Work</h4>
+      <p>Every banker pitch is a persuasive speech with a deck attached. The deck is the evidence. The speaker is the story. I have sat in on enough of them now to see the pattern: the MD who tells a clean narrative — <em>with personality</em> — and lets the associate defend the model on follow-ups gets the mandate. The one who reads the deck out loud does not. Personality is not a liability in professional settings. It is what makes the rest of the work memorable.</p>
+
+      <h4>How to Get Better at It</h4>
+      <ol class="tips">
+        <li><strong>Write the tagline before you write the deck.</strong> If you cannot summarize the pitch in one line that a friend at a bar would remember, the deck will not save you. "Life's short. Make it a Cello." took a day to land. The rest of the deck took a week.</li>
+        <li><strong>Lead with the problem, not the product.</strong> Your product is boring to them. Their problem is not. Spend the first 60 seconds making them feel the gap your product fills — then reveal the product as the answer to the tension you built.</li>
+        <li><strong>Have a specific ask.</strong> Vague asks ("let's keep talking") get vague replies. Specific asks ("$200K for 15% equity, decision by Q3") either close the deal or surface the real objection — both of which are better than drifting.</li>
+        <li><strong>Give yourself permission to be a person.</strong> The audience is not grading your professionalism. They are deciding whether they want to be in a room with you for the next twenty years. Let them see that you are interested in the work, enjoying the moment, and actually having a good time. It will disarm people who walked in ready to tear the idea apart.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- SEND OFF -->
+<section class="next-chapter">
+  <a href="index.html" class="next-link">
+    <div class="label">Return to · Home</div>
+    <div class="title">Back to the <em>thesis.</em><span class="arrow">→</span></div>
+  </a>
+</section>
+
+<footer class="site-footer">
+  <div>© 2026 Finn Fastré</div>
+  <div>Chapter 03 of 03 · End of document</div>
+</footer>
+
+</body>
+</html>
