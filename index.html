@@ -8,43 +8,471 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-  <style>
-     .hero, .masthead, .chapter-cards-container, .conclusion, .colophon {
-       padding-left: 80px;
-       padding-right: 80px;
-     }
-   </style>
+
+<style>
+  /* ======= HOME PAGE ONLY ======= */
+
+  .home-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* HERO */
+  .home-hero {
+    padding: 80px 0 60px;
+  }
+  .home-hero .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .home-hero .kicker::before {
+    content: '';
+    width: 42px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .home-hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(56px, 8vw, 124px);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 36px;
+    font-variation-settings: "opsz" 144;
+  }
+  .home-hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .home-hero .lede {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.4;
+    color: var(--ink-mute);
+    max-width: 720px;
+    margin-top: 20px;
+  }
+
+  /* META STRIP */
+  .meta-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid rgba(26,26,26,0.15);
+  }
+  .meta-strip .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+  }
+  .meta-strip .value {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .meta-strip .value em { font-style: italic; }
+
+  /* THESIS CARD */
+  .home-thesis {
+    margin: 80px 0 100px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 70px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .home-thesis::before {
+    content: '"';
+    position: absolute;
+    top: -60px;
+    left: 30px;
+    font-family: 'Fraunces', serif;
+    font-size: 360px;
+    color: var(--accent);
+    opacity: 0.18;
+    font-style: italic;
+    line-height: 1;
+  }
+  .home-thesis .t-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .home-thesis h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(40px, 5.5vw, 78px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 1;
+    font-variation-settings: "opsz" 144;
+  }
+  .home-thesis h2 .mark {
+    background-image: linear-gradient(transparent 62%, var(--highlight) 62%, var(--highlight) 90%, transparent 90%);
+    padding: 0 4px;
+    color: var(--paper);
+  }
+  .home-thesis p {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    line-height: 1.6;
+    max-width: 640px;
+    color: rgba(244, 237, 225, 0.85);
+    position: relative;
+    z-index: 1;
+  }
+  .home-thesis p + p { margin-top: 16px; }
+
+  /* CHAPTERS INTRO */
+  .chapters-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    align-items: baseline;
+    margin-bottom: 40px;
+  }
+  .chapters-header .num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--accent);
+    font-variation-settings: "opsz" 144;
+  }
+  .chapters-header .title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 8px;
+  }
+  .chapters-intro-text {
+    margin-bottom: 50px;
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 720px;
+  }
+  .chapters-intro-text em { font-style: italic; color: var(--accent); }
+
+  /* CHAPTER CARDS */
+  .home-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 100px;
+  }
+  .home-card {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 40px;
+    align-items: center;
+    padding: 44px 48px;
+    background: var(--paper-deep);
+    border-left: 4px solid var(--ink);
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .home-card:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-left-color: var(--accent);
+  }
+  .home-card:hover .card-num { color: var(--highlight); }
+  .home-card:hover .card-sub { color: rgba(244,237,225,0.78); }
+  .home-card:hover .card-arrow { color: var(--highlight); transform: translateX(10px); }
+
+  .home-card .card-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 72px;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+    transition: color 0.3s;
+    font-variation-settings: "opsz" 144;
+  }
+  .home-card .card-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    font-variation-settings: "opsz" 144;
+  }
+  .home-card .card-title em { font-style: italic; }
+  .home-card .card-sub {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-mute);
+    transition: color 0.3s;
+    max-width: 560px;
+  }
+  .home-card .card-arrow {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--ink);
+    transition: transform 0.3s, color 0.3s;
+  }
+
+  /* CONCLUSION */
+  .home-conclusion {
+    background: var(--accent);
+    color: var(--paper);
+    padding: 80px 72px;
+    margin-bottom: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .home-conclusion::before {
+    content: '.';
+    position: absolute;
+    bottom: -240px;
+    right: -40px;
+    font-family: 'Fraunces', serif;
+    font-size: 520px;
+    color: var(--accent-deep);
+    opacity: 0.55;
+    line-height: 0.5;
+  }
+  .home-conclusion .c-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .home-conclusion h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 1;
+    font-variation-settings: "opsz" 144;
+  }
+  .home-conclusion h2 em { font-style: italic; }
+  .home-conclusion p {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    line-height: 1.55;
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+    color: rgba(244, 237, 225, 0.92);
+  }
+  .home-conclusion p + p { margin-top: 18px; }
+  .home-conclusion p strong { color: var(--paper); font-weight: 600; }
+  .home-conclusion .sign {
+    margin-top: 44px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(244, 237, 225, 0.3);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(244, 237, 225, 0.75);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* COLOPHON */
+  .home-colophon {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    padding: 60px 0 40px;
+    border-top: 1px solid var(--ink);
+  }
+  .home-colophon .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 12px;
+  }
+  .home-colophon .text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .home-colophon .text em { font-style: italic; }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .home-wrap { padding: 0 24px; }
+    .home-hero { padding: 40px 0 30px; }
+    .home-thesis { padding: 44px 28px; margin: 50px 0 70px; }
+    .home-thesis::before { font-size: 200px; top: -10px; }
+    .meta-strip { grid-template-columns: 1fr; gap: 24px; }
+    .home-card {
+      grid-template-columns: 72px 1fr;
+      gap: 20px;
+      padding: 28px;
+    }
+    .home-card .card-num { font-size: 52px; }
+    .home-card .card-title { font-size: 30px; }
+    .home-card .card-arrow { display: none; }
+    .home-conclusion { padding: 50px 28px; }
+    .home-colophon { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 30px; }
+    .chapters-header .num { font-size: 44px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- TOP NAV -->
-<header class="topnav">
-  <div class="topnav-inner">
-    <a href="index.html" class="brand">Finn Fastré<span class="brand-dot">.</span></a>
-    <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="tell-a-story.html">Tell a Story</a>
-      <a href="stay-loose.html">Stay Loose</a>
-      <a href="have-fun.html">Have Fun Doing It</a>
-    </nav>
+<!-- SHARED NAV (matches chapter pages) -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">Finn Fastré <span class="brand-dot">·</span> On Speaking Well</a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="tell-a-story.html">Tell a Story</a>
+    <a href="stay-loose.html">Stay Loose</a>
+    <a href="have-fun.html">Have Fun Doing It</a>
   </div>
-</header>
-  <div class="chapter-cards">
-    <a href="tell-a-story.html" class="chapter-card">
-      <div class="chapter-num">01</div>
-      <div class="chapter-title">Tell a <em>Story</em></div>
-      <div class="chapter-sub">Because narrative is the only format the human brain natively remembers.</div>
- 
+</nav>
+
+<div class="home-wrap">
+
+  <!-- HERO -->
+  <section class="home-hero">
+    <div class="kicker">A field guide to speaking well</div>
+    <h1>
+      Tell a <em>story</em>.<br>
+      Stay <em>loose</em>.<br>
+      Have fun <em>doing</em> it.
+    </h1>
+    <p class="lede">A semester's worth of speeches, pitches, and one very specific theory about how professional communication actually works — written for whoever is stepping into a co-op next.</p>
+
+    <div class="meta-strip">
+      <div>
+        <div class="label">Author</div>
+        <div class="value">Finn Fastré<br>Finance &amp; Accounting<br><em>D'Amore-McKim School of Business</em></div>
+      </div>
+      <div>
+        <div class="label">Course</div>
+        <div class="value">COMM 1113<br>Business &amp; Professional Speaking<br><em>Spring 2026</em></div>
+      </div>
+      <div>
+        <div class="label">Filed Under</div>
+        <div class="value">Reflections · Five Skills · A Shark Tank pitch that got laughs</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THESIS -->
+  <section class="home-thesis">
+    <div class="t-label">Thesis · In Five Words</div>
+    <h2><span class="mark">Tell</span> a story. <span class="mark">Stay</span> loose.</h2>
+    <p>Good professional speaking is not a monologue you perform. It is a conversation you steer. Every real-world speaking situation I have been in this semester — interviews, pitches, classroom debates, co-op meetings — has rewarded the same three things: a narrative the audience can follow, a small set of anchor points I actually know cold, and enough room to move when the room changes on me.</p>
+    <p>What follows is the rest of the sentence, split into three chapters.</p>
+  </section>
+
+  <!-- CHAPTERS -->
+  <div class="chapters-header">
+    <div class="num">II.</div>
+    <div class="title">Three Chapters · Click to Enter</div>
+  </div>
+  <p class="chapters-intro-text">Each line is its own <em>argument.</em> Each chapter gets its own page — with the speeches, the receipts, and the things I am still working on.</p>
+
+  <div class="home-cards">
+    <a href="tell-a-story.html" class="home-card">
+      <div class="card-num">01</div>
+      <div>
+        <div class="card-title">Tell a <em>Story.</em></div>
+        <div class="card-sub">Because narrative is the only format the human brain natively remembers. Features the Rosenhan informative speech and the McKinsey persuasive.</div>
+      </div>
+      <div class="card-arrow">→</div>
     </a>
-    <a href="stay-loose.html" class="chapter-card">
-      <div class="chapter-num">02</div>
-      <div class="chapter-title">Stay <em>Loose</em></div>
-      <div class="chapter-sub">Because every real speaking moment goes off-script in the first five minutes.</div>
-   
+    <a href="stay-loose.html" class="home-card">
+      <div class="card-num">02</div>
+      <div>
+        <div class="card-title">Stay <em>Loose.</em></div>
+        <div class="card-sub">Because every real speaking moment goes off-script in the first five minutes. The interview that taught me this lives here.</div>
+      </div>
+      <div class="card-arrow">→</div>
     </a>
-    <a href="have-fun.html" class="chapter-card">
-      <div class="chapter-num">03</div>
-      <div class="chapter-title">Have Fun <em>Doing It</em></div>
-      <div class="chapter-sub">Because the audience can tell and because professional speaking doesn't have to be stuffy.</div>
-   
- 
+    <a href="have-fun.html" class="home-card">
+      <div class="card-num">03</div>
+      <div>
+        <div class="card-title">Have Fun <em>Doing It.</em></div>
+        <div class="card-sub">Because professional speaking doesn't have to be stuffy. The Cello's Limoncello pitch — a live demonstration that fun and rigor are not opposites.</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+  </div>
+
+  <!-- CONCLUSION -->
+  <section class="home-conclusion">
+    <div class="c-label">One Key Takeaway</div>
+    <h2>Stop rehearsing. Start <em>listening.</em></h2>
+    <p>If I had to collapse this whole semester into a single discipline I will carry into every future meeting, pitch, and interview, it is this: <strong>the best thing I can do in the thirty seconds before I open my mouth is stop practicing what I am about to say and start listening to what the room is actually doing.</strong></p>
+    <p>The script cannot save me in those rooms. The story can. And so can paying attention.</p>
+    <div class="sign">
+      <span>— Finn Fastré</span>
+      <span>Boston · Spring 2026</span>
+    </div>
+  </section>
+
+  <!-- COLOPHON -->
+  <section class="home-colophon">
+    <div>
+      <div class="label">Source Material</div>
+      <div class="text">Persuasive speech on skills vs. AI, informative speech on the Rosenhan experiment, and a Shark Tank pitch for <em>Cello's Limoncello</em>. All produced for COMM 1113, Spring 2026.</div>
+    </div>
+    <div>
+      <div class="label">Research Cited</div>
+      <div class="text">McKinsey Global Institute (2024) · Center for Security and Emerging Technology (2024) · OECD Employment Outlook (2023) · Rosenhan (1973)</div>
+    </div>
+    <div>
+      <div class="label">Colophon</div>
+      <div class="text">Set in Fraunces and JetBrains Mono. One author, five skills, zero memorized paragraphs.</div>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
